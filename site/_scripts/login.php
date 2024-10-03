@@ -23,17 +23,35 @@ if($total==1){
     $total2 = $query2->num_rows;
 
     if($total2==1){
-        echo "<script>
-                Swal.fire('SweetAlert2 is working!');
-            </script>";
+        echo "window.location.href=('../dashboard.php');</script>";
     }else{
-        echo "<script>alert('Verifique sua senha');
-        window.location.href=('../index.php');</script>";
-    }
-}else{
-    echo "<script>alert('Verifique seu login');
-    window.location.href=('../index.php');</script>";
-}
-?>
+    ?>
+        <script language='javascript'>
+            swal.fire({
+                icon:"error",
+                text:"Dados incorretos. Tente novamente :/",
+                type:"success"
+            }).then(okay=> {
+                if(okay){
+                    window.location.href=("../index.php");
+                    
+                }
+            });
+        </script>
+<?php }
+}else{?>
+    <script language='javascript'>
+        swal.fire({
+            icon:"error",
+            text:"Dados incorretos. Tente novamente :/",
+            type:"success"
+        }).then(okay=> {
+            if(okay){
+                window.location.href=("../index.php");
+                
+            }
+        });
+    </script>
+<?php } ?>
 </body>
 </html>
