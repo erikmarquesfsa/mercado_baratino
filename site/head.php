@@ -1,6 +1,8 @@
 <?php 
 session_start(); 
+include "_scripts/functions.php";
 $login = $_SESSION['login'];
+$dadosUsuario = dadosUser($login);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
