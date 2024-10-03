@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,7 +24,8 @@ if($total==1){
     $total2 = $query2->num_rows;
 
     if($total2==1){
-        echo "window.location.href=('../dashboard.php');</script>";
+        echo "<script>window.location.href=('../dashboard.php');</script>";
+        $_SESSION['login'] = $login;
     }else{
     ?>
         <script language='javascript'>
@@ -31,23 +33,21 @@ if($total==1){
                 icon:"error",
                 text:"Dados incorretos. Tente novamente :/",
                 type:"success"
-            }).then(okay=> {
+            }).then((okay)=>{
                 if(okay){
-                    window.location.href=("../index.php");
-                    
+                    window.location.href='../index.php';                 
                 }
             });
         </script>
-<?php }
-}else{?>
+<?php }}else{ ?>
     <script language='javascript'>
         swal.fire({
             icon:"error",
             text:"Dados incorretos. Tente novamente :/",
             type:"success"
-        }).then(okay=> {
+        }).then(okay=>{
             if(okay){
-                window.location.href=("../index.php");
+                window.location.href='../index.php';
                 
             }
         });
