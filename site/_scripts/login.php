@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<body>
 <?php
 include "config.php";
 
@@ -15,7 +22,9 @@ if($total==1){
     $total2 = $query2->num_rows;
 
     if($total2==1){
-        echo "<script>alert('Usuário ok');</script>";
+        echo "<script>
+                Swal.fire('SweetAlert2 is working!');
+            </script>";
     }else{
         echo "<script>alert('Verifique sua senha');
         window.location.href=('../index.php');</script>";
@@ -24,5 +33,6 @@ if($total==1){
     echo "<script>alert('Verifique seu login');
     window.location.href=('../index.php');</script>";
 }
-
 ?>
+</body>
+</html>
